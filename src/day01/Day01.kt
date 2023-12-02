@@ -26,22 +26,18 @@ fun main() {
                 "eight" to "8",
                 "nine" to "9"
         )
-        
+
         var stringToReturn = ""
         stringContainingDigitWords.toCharArray().forEach { char ->
-            run {
-                stringToReturn += char;
+            stringToReturn += char;
 
-                replacements.entries.stream().forEach { entry -> 
-                    run {
-                        if (stringToReturn.contains(entry.key)) {
-                            stringToReturn = stringToReturn.replace(entry.key, "${entry.value}${entry.key}")
-                        }
-                    }
+            replacements.entries.stream().forEach { entry ->
+                if (stringToReturn.contains(entry.key)) {
+                    stringToReturn = stringToReturn.replace(entry.key, "${entry.value}${entry.key}")
                 }
             }
         }
-        
+
         return stringToReturn
     }
 
@@ -58,7 +54,7 @@ fun main() {
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("day01/Day01_test")
     check(part1(testInput) == 142)
-    check(part2(testInput) == 281)
+    check(part2(readInput("day01/Day01_test_part2")) == 281)
 
     val input = readInput("day01/Day01")
     part1(input).println() // 54927
