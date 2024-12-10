@@ -1,4 +1,7 @@
 .gradle
 .idea
 build
-src/**/*.txt
+src/**/*_puzzleinput.txt
+!src/**/*_test_puzzleinput*
+Day*.txt
+!Day*_test*

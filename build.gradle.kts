@@ -1,15 +1,21 @@
+val assertJVersion = "3.11.1"
+
 plugins {
-    kotlin("jvm") version "1.9.20"
+    kotlin("jvm") version "2.0.0"
 }
 
-sourceSets {
-    main {
-        kotlin.srcDir("src")
-    }
+repositories {
+    mavenCentral()
 }
 
-tasks {
-    wrapper {
-        gradleVersion = "8.5"
-    }
+dependencies {
+    testImplementation(kotlin("test"))
+    testImplementation("org.assertj:assertj-core:${assertJVersion}")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
 }
